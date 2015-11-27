@@ -19,6 +19,16 @@ public interface JSONParserListener extends ParseTreeListener {
 	 */
 	void exitProg(JSONParser.ProgContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link JSONParser#dimensions}.
+	 * @param ctx the parse tree
+	 */
+	void enterDimensions(JSONParser.DimensionsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#dimensions}.
+	 * @param ctx the parse tree
+	 */
+	void exitDimensions(JSONParser.DimensionsContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JSONParser#dimension}.
 	 * @param ctx the parse tree
 	 */
@@ -29,6 +39,16 @@ public interface JSONParserListener extends ParseTreeListener {
 	 */
 	void exitDimension(JSONParser.DimensionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link JSONParser#metricIdAndValues}.
+	 * @param ctx the parse tree
+	 */
+	void enterMetricIdAndValues(JSONParser.MetricIdAndValuesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#metricIdAndValues}.
+	 * @param ctx the parse tree
+	 */
+	void exitMetricIdAndValues(JSONParser.MetricIdAndValuesContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JSONParser#metricIdAndValue}.
 	 * @param ctx the parse tree
 	 */
@@ -38,4 +58,24 @@ public interface JSONParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMetricIdAndValue(JSONParser.MetricIdAndValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#limit}.
+	 * @param ctx the parse tree
+	 */
+	void enterLimit(JSONParser.LimitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#limit}.
+	 * @param ctx the parse tree
+	 */
+	void exitLimit(JSONParser.LimitContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#orderBy}.
+	 * @param ctx the parse tree
+	 */
+	void enterOrderBy(JSONParser.OrderByContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#orderBy}.
+	 * @param ctx the parse tree
+	 */
+	void exitOrderBy(JSONParser.OrderByContext ctx);
 }

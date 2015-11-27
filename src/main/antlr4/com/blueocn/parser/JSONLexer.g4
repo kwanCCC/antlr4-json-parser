@@ -281,9 +281,8 @@ STRING
 :
 	QUOTES
 	(
-		ID
-		| INT
-		| FLOAT
+		EscapeSequence
+		| ~( '\\' | '"' | '\n' | '\r' )
 	)* QUOTES
 ;
 
@@ -294,6 +293,67 @@ ID
 		ID_LETTER
 		| DIGIT
 	)*
+;
+
+fragment
+OctalEscape
+:
+	'\\'
+	(
+		'0' .. '3'
+	)
+	(
+		'0' .. '7'
+	)
+	(
+		'0' .. '7'
+	)
+	| '\\'
+	(
+		'0' .. '7'
+	)
+	(
+		'0' .. '7'
+	)
+	| '\\'
+	(
+		'0' .. '7'
+	)
+;
+
+fragment
+HexDigit
+:
+	(
+		'0' .. '9'
+		| 'a' .. 'f'
+		| 'A' .. 'F'
+	)
+;
+//四字节长度字符
+
+fragment
+UnicodeEscape
+:
+	'\\' 'u' HexDigit HexDigit HexDigit HexDigit
+;
+
+fragment
+EscapeSequence
+:
+	'\\'
+	(
+		'b'
+		| 't'
+		| 'n'
+		| 'f'
+		| 'r'
+		| '\"'
+		| '\''
+		| '\\'
+	)
+	| UnicodeEscape
+	| OctalEscape
 ;
 
 fragment

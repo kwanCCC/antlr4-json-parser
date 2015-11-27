@@ -6,51 +6,65 @@ options {
 
 prog
 :
+	LBRACE
 	(
-		GROUPBY COLON dimension
+		GROUPBY COLON dimensions
 	)?
 	(
-		COMMA IDANDV COLON metricIdAndValue
+		COMMA IDANDV COLON metricIdAndValues
 	)?
 	(
 		COMMA TOP COLON limit
 	)?
 	(
 		COMMA ORDER COLON orderBy
-	)? EOF
+	)? RBRACE EOF
+;
+
+dimensions
+:
+	LBRACKET dimension
+	(
+		COMMA dimension
+	)* RBRACKET
 ;
 
 dimension
 :
 	(
-		LBRACKET dimensionName = STRING RBRACKET
-		(
-			COMMA
-		)?
-	)*
+		dimensionName = STRING
+	)?
+;
+
+metricIdAndValues
+:
+	LBRACE metricIdAndValue
+	(
+		COMMA metricIdAndValue
+	)* RBRACE
 ;
 
 metricIdAndValue
 :
 	(
-		LBRACE metricName = STRING COLON metricValue = STRING
-		| INT RBRACE
+		metricName = STRING COLON metricValue =
 		(
-			COMMA
-		)?
-	)*
+			STRING
+			| INT
+		)
+	)?
 ;
 
 limit
 :
 	(
-		limit = INT
+		limitNum = INT
 	)?
 ;
 
 orderBy
 :
 	(
-		orderBy = STRING
+		orderByStr = STRING
 	)?
 ;

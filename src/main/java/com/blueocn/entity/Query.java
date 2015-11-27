@@ -9,13 +9,13 @@ import lombok.EqualsAndHashCode;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-
 @Data
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode
 public class Query {
     private final List<String>         groupby;
-    private final Pair<String, String> idAndV;
-    private final String               top;
+    private final Pair<String, Object> idAndV;
+    private final Integer              top;
+    private final String               order;
 }

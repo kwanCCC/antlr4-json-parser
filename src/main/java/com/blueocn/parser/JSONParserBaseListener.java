@@ -29,6 +29,18 @@ public class JSONParserBaseListener implements JSONParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDimensions(JSONParser.DimensionsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDimensions(JSONParser.DimensionsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDimension(JSONParser.DimensionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -41,6 +53,18 @@ public class JSONParserBaseListener implements JSONParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMetricIdAndValues(JSONParser.MetricIdAndValuesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMetricIdAndValues(JSONParser.MetricIdAndValuesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMetricIdAndValue(JSONParser.MetricIdAndValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -48,6 +72,30 @@ public class JSONParserBaseListener implements JSONParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMetricIdAndValue(JSONParser.MetricIdAndValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLimit(JSONParser.LimitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLimit(JSONParser.LimitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOrderBy(JSONParser.OrderByContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOrderBy(JSONParser.OrderByContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

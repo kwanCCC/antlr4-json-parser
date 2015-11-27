@@ -18,15 +18,39 @@ public interface JSONParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProg(JSONParser.ProgContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link JSONParser#dimensions}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDimensions(JSONParser.DimensionsContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link JSONParser#dimension}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitDimension(JSONParser.DimensionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link JSONParser#metricIdAndValues}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMetricIdAndValues(JSONParser.MetricIdAndValuesContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link JSONParser#metricIdAndValue}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMetricIdAndValue(JSONParser.MetricIdAndValueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#limit}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLimit(JSONParser.LimitContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#orderBy}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOrderBy(JSONParser.OrderByContext ctx);
 }
