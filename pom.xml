@@ -14,29 +14,18 @@
 		<antlr.version>4.5</antlr.version>
 	</properties>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>local-snapshots</id>
-			<uniqueVersion>false</uniqueVersion>
-			<url>http://10.128.6.39:8081/nexus/content/repositories/snapshots/</url>
-			<layout>default</layout>
-		</snapshotRepository>
-		<repository>
-			<id>local-releases</id>
-			<uniqueVersion>true</uniqueVersion>
-			<layout>default</layout>
-			<url>http://10.128.6.39:8081/nexus/content/repositories/releases/</url>
-		</repository>
-	</distributionManagement>
+	<!-- <distributionManagement> <snapshotRepository> <id>local-snapshots</id> 
+		<uniqueVersion>false</uniqueVersion> <url>http://10.128.6.39:8081/nexus/content/repositories/snapshots/</url> 
+		<layout>default</layout> </snapshotRepository> <repository> <id>local-releases</id> 
+		<uniqueVersion>true</uniqueVersion> <layout>default</layout> <url>http://10.128.6.39:8081/nexus/content/repositories/releases/</url> 
+		</repository> </distributionManagement> -->
 	<repositories>
 		<repository>
 			<id>maven</id>
 			<url>http://repo1.maven.org/maven2</url>
 		</repository>
-		<repository>
-			<id>local-central</id>
-			<url>http://10.128.6.39:8081/nexus/content/groups/public/</url>
-		</repository>
+		<!-- <repository> <id>local-central</id> <url>http://10.128.6.39:8081/nexus/content/groups/public/</url> 
+			</repository> -->
 		<repository>
 			<id>jcenter-release</id>
 			<name>jcenter</name>
@@ -127,15 +116,31 @@
 						</execution>
 					</executions>
 				</plugin>
-				<!-- <plugin> <groupId>org.antlr</groupId> <artifactId>antlr4-maven-plugin</artifactId> 
-					<version>${antlr.version}</version> </plugin> -->
+				<plugin>
+					<groupId>org.antlr</groupId>
+					<artifactId>antlr4-maven-plugin</artifactId>
+					<version>${antlr.version}</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
-			<!-- <plugin> <groupId>org.antlr</groupId> <artifactId>antlr4-maven-plugin</artifactId> 
-				<executions> <execution> <id>antlr4</id> <goals> <goal>antlr4</goal> </goals> 
-				<phase>generate-sources</phase> <configuration> <listener>true</listener> 
-				<visitor>true</visitor> </configuration> </execution> </executions> </plugin> -->
+			<plugin>
+				<groupId>org.antlr</groupId>
+				<artifactId>antlr4-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>antlr4</id>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<listener>true</listener>
+							<visitor>true</visitor>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>

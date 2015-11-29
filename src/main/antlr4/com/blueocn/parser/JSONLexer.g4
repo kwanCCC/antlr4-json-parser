@@ -1,23 +1,31 @@
 lexer grammar JSONLexer;
 
+@lexer::members {
+	public void notifyListeners(LexerNoViableAltException e) {
+		String text = _input.getText(Interval.of(_tokenStartCharIndex, _input.index()));		
+		ANTLRErrorListener listener = getErrorListenerDispatch();
+		listener.syntaxError(this, null, _tokenStartLine, _tokenStartCharPositionInLine, text, e);
+	}
+}
+
 GROUPBY
 :
-	G R O U P B Y
+	QUOTES G R O U P B Y QUOTES
 ;
 
 IDANDV
 :
-	I D A N D V
+	QUOTES I D A N D V QUOTES
 ;
 
 TOP
 :
-	T O P
+	QUOTES T O P QUOTES
 ;
 
 ORDER
 :
-	O R D E R
+	QUOTES O R D E R QUOTES
 ;
 
 LPAREN

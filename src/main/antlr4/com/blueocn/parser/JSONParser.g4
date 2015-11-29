@@ -47,12 +47,23 @@ metricIdAndValues
 metricIdAndValue
 :
 	(
-		metricName = STRING COLON metricValue =
-		(
-			STRING
-			| INT
-		)
+		metricName = STRING COLON values
 	)?
+;
+
+values
+:
+	multiObject = jsonArray
+	| singleObject = singleValue
+;
+
+singleValue
+:
+	objectValue =
+	(
+		STRING
+		| INT
+	)
 ;
 
 limit
@@ -67,4 +78,38 @@ orderBy
 	(
 		orderByStr = STRING
 	)?
+;
+
+jsonArray
+:
+	LBRACKET
+	(
+		singleValue
+		(
+			COMMA singleValue
+		)*
+	)? RBRACKET
+	| LBRACKET RBRACKET
+;
+
+jsonValue
+:
+	jsonObject
+	| jsonArray
+;
+
+jsonObject
+:
+	LBRACE
+	(
+		member
+		(
+			COMMA member
+		)*
+	)? LBRACE
+;
+
+member
+:
+	STRING COLON jsonValue
 ;
