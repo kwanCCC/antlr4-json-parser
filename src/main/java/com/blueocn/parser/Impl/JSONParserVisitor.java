@@ -137,6 +137,9 @@ public class JSONParserVisitor implements com.blueocn.parser.JSONParserVisitor<B
     public Boolean visitDimension(DimensionContext ctx) {
         if (ctx.dimensionName != null) {
             String dimension = ctx.dimensionName.getText();
+            if (dimension.contains("\"")) {
+                dimension = dimension.replace("\"", "");
+            }
             stack.push(dimension);
             return true;
         }
